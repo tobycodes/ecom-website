@@ -3,7 +3,9 @@ import Hero from '../../components/Hero/hero.component';
 
 
 
-const HomePage = () => {
+const HomePage = (props) => {
+
+    console.log(props.match);
     return (
         <div className={`homepage`}>
             <Hero />

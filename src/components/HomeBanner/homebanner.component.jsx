@@ -1,10 +1,11 @@
 import React from 'react';
 import './_homebanner.styles.scss';
+import { withRouter } from 'react-router-dom'
 
-const HomeBanner = (props) => {
-    const { title, imageUrl, size } = props
+const HomeBanner = ({ title, imageUrl, size, history, match, linkUrl }) => {
     return (
-        <div className={`${size} banner`}>
+        <div className={size ? `${size} banner` : 'banner'}
+        onClick={()=> (history.push(`${match.url}${linkUrl}`))}>
             <div
              style={{
                 backgroundImage: `url(${imageUrl})`
@@ -19,4 +20,4 @@ const HomeBanner = (props) => {
     )
 }
 
-export default HomeBanner;
+export default withRouter(HomeBanner);

@@ -1,0 +1,16 @@
+.category__item {
+    justify-self: stretch;
+
+    &-image {
+        background-size: cover;
+        background-position: center;
+        margin-bottom: .5rem;
+    }
+
+    &-info {
+        font-size: 1.8rem;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+}
