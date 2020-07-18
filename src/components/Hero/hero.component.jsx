@@ -52,13 +52,10 @@ class Hero extends React.Component {
         const { sections } = this.state;
          return (
             <div className='hero'>
-                {sections.map(({ title, id, imageUrl, size }) => 
+                {sections.map(({ id, ...otherSectionProps }) => 
                     (<HomeBanner 
                         key={id} 
-                        title={title} 
-                        imageUrl={imageUrl}
-                        size={size} 
-                    />))}
+                        {...otherSectionProps}/>))}
             </div>
         )
     }

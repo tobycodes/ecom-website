@@ -1,0 +1,16 @@
+.category__preview {
+    margin-bottom: 4rem;
+
+    &-title {
+        font-size: 3.2rem;
+        margin-bottom: 3rem;
+    }
+
+    &-body {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        grid-gap: 2rem;
+        
+    }
+
+}
