@@ -1,0 +1,34 @@
+.signpage {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 8rem;
+
+    &__elem {
+        margin: 5rem;
+        width: 30vw;
+        display: flex;
+        flex-direction: column;
+
+        &-title {
+            margin-bottom: 1.4rem;
+            font-size: 3.5rem;
+        }
+
+        &-subtitle {
+            font-size: 1.8rem;
+        }
+
+        &-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @media only screen and (max-width: 74.375em) {
+            &-buttons {
+                flex-direction: column;
+            }
+        }
+    }
+    
+}
+
