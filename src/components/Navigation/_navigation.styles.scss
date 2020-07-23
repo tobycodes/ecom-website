@@ -29,6 +29,8 @@
         text-transform: uppercase;
         color: inherit;
 
+        cursor: pointer;
+
         &:hover,&:focus {
             text-decoration: underline;
         }
