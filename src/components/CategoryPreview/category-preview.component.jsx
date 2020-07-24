@@ -9,8 +9,8 @@ const CategoryPreview = ({title, items}) => {
             <h3 className='category__preview-title'>{title.toUpperCase()}</h3>
             <div  className='category__preview-body'>
                 {items.filter((item, index) => index < 4)
-                    .map(({id, ...categoryItemProps}) =>  (
-                        <CategoryItem key={id} {...categoryItemProps} />
+                    .map(item =>  (
+                        <CategoryItem key={item.id} item={item} />
                     )
                 )}
             </div>

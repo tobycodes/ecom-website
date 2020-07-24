@@ -4,10 +4,12 @@ import { Link, NavLink } from 'react-router-dom';
 import { ReactComponent as Logo } from '../../assets/cart.svg';
 import { auth } from '../../firebase/firebase.utils';
 
+import { connect } from 'react-redux';
+import CartIcon from '../CartIcon/cart-icon.component';
+import CartDropdown from '../CartDropdown/cart-dropdown.component';
 
 
-const Navigation = ({ currentUser }) => {
-
+const Navigation = ({ currentUser, hidden, cartItems }) => {
     return (
     <div className='nav'>
         <Link to='/' className='nav__logo'>
@@ -30,11 +32,22 @@ const Navigation = ({ currentUser }) => {
                     Sign In
                 </NavLink>
             }
-
            
+            <CartIcon />
         </div>
+        {
+            hidden ? null : <CartDropdown cartItems={cartItems}/>
+            
+        }
+        
     </div>
     
 )};
 
-export default Navigation;
+const mapStateToProps = ({user: {currentUser}, cart: {hidden, cartItems}}) => ({
+    currentUser,
+    hidden,
+    cartItems
+});
+
+export default connect(mapStateToProps)(Navigation);
