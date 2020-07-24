@@ -1,16 +1,38 @@
 .category__item {
+    display: flex;
+    flex-direction: column;
     justify-self: stretch;
+    position: relative;
+    align-items: center;
 
     &-image {
         background-size: cover;
         background-position: center;
         margin-bottom: .5rem;
+        align-self: stretch;
     }
 
     &-info {
         font-size: 1.8rem;
         display: flex;
         justify-content: space-between;
+        align-self: stretch;
         margin-bottom: 1rem;
+    }
+
+    .custom-button {
+        width: 80%;
+        opacity: .7;
+        position: absolute;
+        top: 25rem;
+        display: none;
+    }
+
+    &:hover &-image {
+        opacity: .8;
+    }
+
+    &:hover .custom-button {
+        display: block;
     }
 }

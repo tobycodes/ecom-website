@@ -1,0 +1,36 @@
+.cart-dropdown {
+    position: absolute;
+    width: 24rem;
+    height: 34rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border: 1px solid black;
+    background-color: white;
+    top: 9rem;
+    right: 4rem;
+    z-index: 50;
+  
+    &__content {
+      height: 24rem;
+      display: flex;
+      flex-direction: column;
+      overflow: scroll;
+
+      &::-webkit-scrollbar {
+        width: .5rem;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(black, .6); 
+        border-radius: 2rem;  
+        border: 3px solid inherit;
+      }
+    }
+  
+    &__btn {
+      margin-top: auto;
+      align-self: center;
+    }
+  }
+  
