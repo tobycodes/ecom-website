@@ -11,6 +11,7 @@ import { auth, createUserProfile } from './firebase/firebase.utils';
 import SignInPage from './pages/SignInPage/signinpage.component';
 import { setCurrentUser } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selectors';
+import CheckoutPage from './pages/CheckoutPage/checkout.component';
 
 
 class App extends React.Component {
@@ -48,6 +49,7 @@ class App extends React.Component {
           <Route exact path='/signin' component={SignInPage}>
             {currentUser ? <Redirect to='/' /> : <SignInPage />}
           </Route>
+          <Route exact path='/checkout' component={CheckoutPage} />
         </Switch>
       </div>
     );
