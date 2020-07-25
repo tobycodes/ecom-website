@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
 import './_cart-icon.styles.scss';
 
@@ -17,8 +18,8 @@ const CartIcon = ({ toggleCartHidden, totalCartItems }) => (
     </div>
 );
 
-const mapStateToProps = ({ cart }) => ({
-    totalCartItems: selectTotalCartItems(cart)
+const mapStateToProps = createStructuredSelector({
+    totalCartItems: selectTotalCartItems
 })
 
 const mapDispatchToProps = dispatch => ({
