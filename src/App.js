@@ -23,10 +23,10 @@ class App extends React.Component {
         const userRef = await createUserProfile(userAuth);
 
         userRef.onSnapshot(snapshot => {
-         setCurrentUser({
-              id: snapshot.id,
-              ...snapshot.data()
-            })
+          setCurrentUser({
+            id: snapshot.id,
+            ...snapshot.data()
+          })
         });
       }
 
@@ -45,7 +45,7 @@ class App extends React.Component {
         <Navigation />
         <Switch>
           <Route exact path='/' component={HomePage} />
-          <Route exact path='/shop' component={ShopPage} />
+          <Route path='/shop' component={ShopPage} />
           <Route exact path='/signin' component={SignInPage}>
             {currentUser ? <Redirect to='/' /> : <SignInPage />}
           </Route>
