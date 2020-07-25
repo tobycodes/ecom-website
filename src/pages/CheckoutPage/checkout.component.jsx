@@ -49,7 +49,7 @@ const CheckoutPage = ({ cartItems, cartTotal, history }) => (
 		{cartItems.length ? (
 			<div className="checkout__total">Total: ${cartTotal}</div>
 		) : null}
-		{cartTotal && (
+		{cartTotal > 0 && (
 			<div className="stripe">
 				<span className="warning">
 					*Please use the following test credit card for payments*
