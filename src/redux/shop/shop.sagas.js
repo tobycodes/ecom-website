@@ -27,3 +27,7 @@ export function* watchFetchCollectionsStart() {
 		fetchCollectionsStartAsync
 	);
 }
+
+export function* shopSagas() {
+	yield all[call(watchFetchCollectionsStart)];
+}

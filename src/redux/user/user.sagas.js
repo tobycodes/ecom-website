@@ -11,11 +11,13 @@ import {
 	signInFailure,
 	signOutSuccess,
 	signOutFailure,
+	signUpFailure,
+	signUpSuccess,
 } from "./user.actions";
 
-export function* signInWithAuth(userAuth) {
+export function* signInWithAuth(userAuth, additionalData) {
 	try {
-		const userRef = yield call(createUserProfile, userAuth);
+		const userRef = yield call(createUserProfile, userAuth, additionalData);
 		const userSnapshot = yield userRef.get();
 
 		yield put(signInSuccess({ id: userSnapshot.id, ...userSnapshot.data() }));
@@ -61,6 +63,19 @@ export function* signOutUser() {
 	}
 }
 
+export function* signUpUser({ payload: { email, password, displayName } }) {
+	try {
+		const { user } = yield auth.createUserWithEmailAndPassword(email, password);
+		yield put(signUpSuccess({ user, additionalData: displayName }));
+	} catch (error) {
+		yield signUpFailure(error);
+	}
+}
+
+export function* signInAfterSignUp({ user, additionalData }) {
+	yield signInWithAuth(user, additionalData);
+}
+
 export function* watchUserAuthentication() {
 	yield takeEvery(userActionTypes.CHECK_USER_SESSION, isUserAuthenticated);
 }
@@ -77,11 +92,21 @@ export function* watchSignOutStart() {
 	yield takeLatest(userActionTypes.SIGN_OUT_START, signOutUser);
 }
 
+export function* watchSignUpStart() {
+	yield takeLatest(userActionTypes.SIGN_UP_START, signUpUser);
+}
+
+export function* watchSignUpSuccess() {
+	yield takeLatest(userActionTypes.SIGN_UP_SUCCESS, signInAfterSignUp);
+}
+
 export default function* userSaga() {
 	yield all([
 		call(watchUserAuthentication),
 		call(watchGoogleSignInStart),
 		call(watchEmailSignInStart),
 		call(watchSignOutStart),
+		call(watchSignUpStart),
+		call(watchSignUpSuccess),
 	]);
 }

@@ -40,3 +40,18 @@ export const signOutFailure = (errorMessage) => ({
 	type: userActionTypes.SIGN_OUT_FAILURE,
 	payload: errorMessage,
 });
+
+export const signUpStart = (userObject) => ({
+	type: userActionTypes.SIGN_UP_START,
+	payload: userObject,
+});
+
+export const signUpSuccess = ({ user, additionalData }) => ({
+	type: userActionTypes.SIGN_UP_SUCCESS,
+	payload: { user, additionalData },
+});
+
+export const signUpFailure = (errorMessage) => ({
+	type: userActionTypes.SIGN_UP_FAILURE,
+	payload: errorMessage,
+});
