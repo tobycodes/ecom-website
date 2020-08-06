@@ -1,16 +1,27 @@
 .category__preview {
-    margin-bottom: 4rem;
+	margin-bottom: 4rem;
 
-    &-title {
-        font-size: 3.2rem;
-        margin-bottom: 3rem;
-    }
+	&-title {
+		font-size: 3.2rem;
+		margin-bottom: 3rem;
+		display: inline-block;
+		color: inherit;
 
-    &-body {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        grid-gap: 2rem;
-        
-    }
+		cursor: pointer;
 
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
+
+		&.active {
+			text-decoration: underline;
+		}
+	}
+
+	&-body {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		grid-gap: 2rem;
+	}
 }
